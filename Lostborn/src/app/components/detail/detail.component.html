@@ -1,0 +1,227 @@
+<!--Navigation-->
+<section>
+    <app-navbar></app-navbar>
+</section>
+<!-- Main content -->
+<section class="py-5" style="background-color: #ffffff;">
+    
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="back-button-container">
+            <a href="/store" class="back-button">
+                <img src="../../../assets/back-50.png" alt="New" style="max-width: 100%;">
+            </a>
+        </div>
+        <div class="row gx-4 gx-lg-5 align-items-start">
+
+            <!-- Image column with status icons and right margin -->
+            <div class="col-md-6 ps-md-3 position-relative">
+                <!-- Iterate through prodStatus and append status icons with max-width -->
+                <div class="position-absolute top-0 start-2">
+                    <ng-container *ngFor="let status of prodStatus">
+                        <div *ngIf="status === 'NEW'" class="status-icon new-icon">
+                            <div class="buffer" style="padding-left: 1rem;">
+                                <img src="../../../assets/new.png" alt="New" class="status-image"
+                                    style="max-width: 50%;">
+                            </div>
+                        </div>
+                        <div *ngIf="status === 'CLEAN'" class="status-icon clean-icon">
+                            <div class="buffer" style="padding-left: 1rem;">
+                                <img src="../../../assets/clean.png" alt="Clean" class="status-image"
+                                    style="max-width: 50%;">
+                            </div>
+                        </div>
+                    </ng-container>
+                </div>
+
+                <!-- Main image with padding and max-width -->
+                <img class="card-img-top mb-5 mb-md-0" src={{imageUrlDetail}} alt="..."
+                    style="max-width: 100%; padding-left: 1rem;">
+                <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">
+                    Exclusive
+                </div>
+            </div>
+            <br>
+            <!-- Details column -->
+            <div class="col-md-6 align-items-start"
+                style="font-style:bold;overflow-y: auto; max-height: 85vh;min-width: 50%">
+
+                <div class="col-md-9 align-items-start">
+                    <div class="small mb-1">SKU: BST-498</div>
+                    <h1 class="display-5 fw-bolder" style="font-size: 2rem;">{{title}}</h1>
+                    <h4 class="display-5 fw-bolder" style="font-size: 1.3rem;color: #b7804f;">{{description}}</h4>
+                    <div class="fs-5 mb-3">
+                        <p class="lead" style="font-size: 1rem;">Full-Size Bottle</p>
+                        <div style="display: flex; align-items: center;">
+                            <span style="padding-top: 0.3rem; margin-right: 0.7rem;">${{ price }}</span>
+                            <div class="badge bg-dark text-white"
+                                style="font-size: 0.7rem; position: relative; top: 0.1rem;">{{ weight }} oz</div>
+                        </div>
+                        <p class="lead" style="font-size: 0.9rem;padding-top:3%;color: #b7804f;">{{inStock}} left.</p>
+                    </div>
+                    <p class="lead w-100" style="font-size: 1rem;">{{descriptionLong}}</p>
+                    <div class="flex justify-content-start">
+                        <input class="form-control text-center me-3 mb-2" id="inputQuantity" type="num" value="1"
+                            style="max-width: 5rem" />
+                        <button class="btn btn-outline-dark flex-shrink-0 ms-auto" type="button"
+                            style="min-width: 40%;">
+                            <i class="bi-cart-fill me-1"></i>
+                            Add to cart
+                        </button>
+                    </div>
+                    <!--Ad-->
+                    <figure class="flex justify-content-left align-items-center px-4 mt-5"
+                        style="height: 11.25rem;width:30rem; background-image: url('https://cdn.scentbird.com/frontbird2/images/free-luxe-travel-bag-desktop_8cfa47.jpg?w=928'); background-size: cover;">
+                        <div class="text-left text-black" style="max-width: 7rem;padding-top: 5%;">
+                            <h2 class="display-6" style="font-size: 1.5rem;">Free luxe travel bag</h2>
+
+                        </div>
+                        <div class="text-left text-black" style="max-width: 15rem;">
+
+                            <p class="lead" style="font-size: 1.2rem;">Spend $135 or more and receive a free <span
+                                    class="text" style="color: #794416;">Scentbird
+                                    luxe travel bag</span>.</p>
+                        </div>
+                    </figure>
+
+
+
+                    <hr class="my-6">
+                    <!-- Details column -->
+                    <div class="row mt-8">
+                        <!-- New content below the horizontal line -->
+                        <div class="d-flex align-items-center justify-content-between">
+                            <!-- Image container -->
+                            <div class="col-md-3">
+                                <img class="img-fluid"
+                                    src="https://cdn.scentbird.com/product/trading_item/rebrand/rebranded_1-5ml_vial.jpg?w=96&amp;bgcolor=fff"
+                                    alt="" draggable="false" decoding="async">
+                            </div>
+
+                            <!-- Details -->
+                            <div class="col-md-6 d-flex flex-column">
+                                <div class="text-p4 d-flex align-items-center">
+                                    <!-- Price and quantity -->
+                                    <div data-testid="price" class="font-bold">$6.95</div>
+                                    <span class="ml-2"> 1.5 ml vial</span>
+                                </div>
+                            </div>
+
+                            <!-- Button -->
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" style="min-width: 25%;">
+                                <i class="bi-cart-fill me-1"></i>
+                                Add to cart
+                            </button>
+                        </div>
+                    </div>
+                    <hr class="my-6">
+                    <!-- Details column -->
+                    <div class="row mt-8">
+                        <!-- New content below the horizontal line -->
+                        <div class="d-flex align-items-center justify-content-between">
+                            <!-- Image container -->
+                            <div class="col-md-3">
+                                <img class="img-fluid"
+                                    src="https://cdn.scentbird.com/product/normal/img-11521-1.jpg?w=96&bgcolor=fff"
+                                    alt="" draggable="false" decoding="async">
+                            </div>
+
+                            <!-- Details -->
+                            <div class="col-md-6 d-flex flex-column">
+                                <div class="text-p4 d-flex align-items-center">
+                                    <!-- Price and quantity -->
+                                    <div data-testid="price" class="font-bold">$4.95</div>
+                                    <span class="ml-2"> 1.5 ml vial</span>
+                                </div>
+                            </div>
+
+                            <!-- Button -->
+                            <button class="btn btn-outline-dark flex-shrink-0" type="button" style="min-width: 25%;">
+                                <i class="bi-cart-fill me-1"></i>
+                                Add to cart
+                            </button>
+                        </div>
+                    </div>
+                    <hr class="my-6">
+                </div>
+            </div>
+        </div>
+        <section class="py-5" style="background-color:#ffffff">
+            <div class="container px-4 px-lg-5 mt-5">
+                <p class="lead text-center mb-4" style="font-size: 1.2rem; color: #bb783e;">STOP AND SMELL THESE</p>
+                <h2 class="fw-bolder text-center mb-4" style="font-size: 2.3rem;">FEATURED NOTES</h2>
+                <p class="text-center" style="font-size: 1.0rem;">Learn more about the top, middle, and bottom notes in
+                    this fragrance.</p>
+                <div class="row gx-4 gx-lg-5 justify-content-center" style="padding-top: 1rem;">
+                    <!-- Your content goes here -->
+                    <div class="col mb-5">
+                        <!-- Content for the first column -->
+                        <!-- Iterate through the fragrances dictionary and display the images -->
+                        <!-- Your existing code for .prodFrag and .fragDesc -->
+                        <div class="prodDescContainer">
+                            <div class="prodFrag d-flex justify-content-center align-items-center gap-5">
+                                <div class="fragrance-item" *ngFor="let fragrance of prodFrag">
+                                    <img [src]="fragranceImages[fragrance]" alt="{{ fragrance }}"
+                                        class="fragrance-image transparent-background">
+                                    <p style="font-size: 1.0rem">{{ fragrance }}</p>
+                                </div>
+                            </div>
+                            <div class="fragDesc" style="margin-left: 5rem;margin-right:5rem;">
+                                <hr class="my-6">
+                                <p class="lead w-100" style="font-size: 1rem;">{{descriptionLong}}</p>
+                                <hr class="my-6">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="row gx-4 gx-lg-5 align-items-start" style="background-color: #f7efe9;">
+                <!-- Left Column - Image -->
+                <div class="col-md-6 ps-md-3 position-relative">
+                    <img class="bg-cover" style="max-width: 35rem;" src="https://cdn.scentbird.com/frontbird2/images/red-panda_ea096a.jpg?w=1136">
+                </div>
+        
+                <!-- Right Column - Text and Additional Image -->
+                <div class="col-md-6 align-items-start d-flex flex-column justify-content-center">
+                    <!-- Title -->
+                    <div class="text-h5 mb-4" style="padding-top: 3rem;left:0"><h2 style="font-size: 1.7rem;">This fragrance saves animals</h2></div>
+        
+                    <!-- Description -->
+                    <div class="mb-8 text-p3">
+                        <p>
+                            Red pandas were discovered about 50 years before the giant panda, but because of factors like deforestation, poachers, and climate change, there could be as few as 2,500 red pandas left in the wild.
+                        </p>
+                        <p>
+                            <strong class="font-bold">
+                                $1 from every purchase of an 8 ml vial will benefit the Red Panda Network,
+                            </strong>
+                            a group dedicated to restoring and reconnecting the red panda’s forest habitat in Nepal.
+                        </p>
+                    </div>
+        
+                    <!-- Additional Image -->
+                    <img class="" style="max-width: 15rem;" src="https://cdn.scentbird.com/frontbird2/images/red-panda_737e86.jpg?w=400" alt="" draggable="false" decoding="async">
+                </div>
+            </div>
+        </section>
+        
+        <!-- Related items section-->
+        <section class="py-5">
+
+            <h2 class="fw-bolder mb-4" style="font-size: 2rem;">Related products</h2>
+            <div class="cardContainer">
+
+                <div class="row align-items-center">
+                    <div *ngFor="let card of cards" class="col-sm-4 mb-3">
+                        <app-card [title]="card.title" [weight]="card.weight" [description]="card.description"
+                            [price]="card.price" [imageUrl]="card.imageUrl" [prodFrag]="card.prodFrag"
+                            [prodStatus]="card.prodStatus" [descriptionLong]="card.descriptionLong"
+                            [inStock]="card.inStock" [averageRating]="card.averageRating"
+                            [imageUrlDetail]="card.imageUrlDetail">
+                        </app-card>
+                    </div>
+                </div>
+
+            </div>
+        </section>

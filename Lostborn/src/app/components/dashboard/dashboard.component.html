@@ -1,0 +1,20 @@
+<main class="main">
+    <div class="content">
+        <div class="navbarcontainer">
+            <app-navbar></app-navbar>
+        </div>
+        <app-sidebar></app-sidebar>
+        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" style="padding-top: 3.5rem;padding-left:5rem">
+            <mat-tab label="IP Access">
+                <div class="tablecontainer">
+                    <app-table></app-table>
+                </div>
+            </mat-tab>
+            <mat-tab label="Products">
+                <div class="smaller-content">
+                    <app-prodtable></app-prodtable>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</main>

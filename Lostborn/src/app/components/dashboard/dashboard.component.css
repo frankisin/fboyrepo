@@ -1,0 +1,9 @@
+/* Add this to your component's CSS file or styles property */
+.smaller-content {
+    /* Add styles to control the size of the content when "Products" tab is open */
+    
+    max-width: 90%; /* Adjust the max height as needed */
+    justify-content: center;
+    margin-top: 5%;
+
+}

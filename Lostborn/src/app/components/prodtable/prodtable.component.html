@@ -1,0 +1,89 @@
+<mat-form-field style="padding-left: 5rem;">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilterSearch($event)" placeholder="Waiting for filter..." #input>
+</mat-form-field>
+<button mat-mini-fab (click)="onAddRow()" style="margin-left:1rem">
+    <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+</button>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="ID">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let element" class="short-cell-height">{{element.ID}}</td>
+    </ng-container>
+
+    <!-- Title Column -->
+    <ng-container matColumnDef="Title">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Title</th>
+        <td mat-cell *matCellDef="let element" class="short-cell-height">{{element.Title}}</td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Weight">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Weight</th>
+        <td mat-cell *matCellDef="let element" class="short-cell-height">{{element.Weight}}</td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="Description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+        <td mat-cell *matCellDef="let element" class="short-cell-height">{{element.Description}}</td>
+    </ng-container>
+
+    <!-- Price Column -->
+    <ng-container matColumnDef="Price">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Price</th>
+        <td mat-cell *matCellDef="let element" class="short-cell-height">{{element.Price}}</td>
+    </ng-container>
+
+    <!-- ImageUrl Column -->
+    <ng-container matColumnDef="ImageUrl">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ImageUrl</th>
+        <td mat-cell *matCellDef="let element" class="short-cell-height">{{element.ImageUrl}}</td>
+    </ng-container>
+
+    <!-- ProdStatus Column -->
+    <ng-container matColumnDef="ProdStatus">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ProdStatus</th>
+        <td mat-cell *matCellDef="let element" class="short-cell-height">{{element.ProdStatus}}</td>
+    </ng-container>
+
+    <!-- ProdFrag Column -->
+    <ng-container matColumnDef="ProdFrag">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header >ProdFrag</th>
+        <td mat-cell *matCellDef="let element" class="short-cell-height">{{element.ProdFrag}}</td>
+    </ng-container>
+
+    <!-- DescriptionLong Column -->
+    <ng-container matColumnDef="DescriptionLong">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>DescriptionLong</th>
+        <td mat-cell *matCellDef="let element" class="short-cell-height">{{element.DescriptionLong}}</td>
+    </ng-container>
+
+    <!-- InStock Column -->
+    <ng-container matColumnDef="InStock">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>InStock</th>
+        <td mat-cell *matCellDef="let element" class="short-cell-height">{{element.InStock}}</td>
+    </ng-container>
+
+    <!-- AverageRating Column -->
+    <ng-container matColumnDef="AverageRating">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>AverageRating</th>
+        <td mat-cell *matCellDef="let element" class="short-cell-height">{{element.AverageRating}}</td>
+    </ng-container>
+
+    <!-- ImageUrlDetail Column -->
+    <ng-container matColumnDef="ImageUrlDetail">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ImageUrlDetail</th>
+        <td mat-cell *matCellDef="let element" class="short-cell-height">{{element.ImageUrlDetail}}</td>
+    </ng-container>
+    <!-- Add this line to enable row selection -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClick(row)"></tr>
+
+</table>
+<mat-paginator [length]="dataSourceLength" [pageSizeOptions]="[10, 15, 30]" showFirstLastButtons
+    aria-label="Select page">
+</mat-paginator>

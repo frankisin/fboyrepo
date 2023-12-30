@@ -1,0 +1,93 @@
+<div class="container">
+
+
+    <div class="bodyread" *ngIf="!isEditing">
+        <div class="title">
+            <h1 mat-dialog-title>IP Access Detail</h1>
+        </div>
+        <mat-divider></mat-divider>
+        <div mat-dialog-content>
+            <p><span style="color: #ff4081; text-decoration: underline;">ID:</span> {{ ID }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">IP Plan:</span> {{ IP_PLAN }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">Plan Year:</span> {{ PLAN_YEAR }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">OPR Class:</span> {{ OPRCLASS }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">Plan Status:</span> {{ PLAN_STATUS }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">Access Pages:</span> {{ ACCESS_PAGES }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">Access Type:</span> {{ ACCESS_TYPE }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">From Date:</span> {{ FROM_DT }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">To Date:</span> {{ TO_DT }}</p>
+        </div>
+    </div>
+
+    <div class="title">
+        <h1 mat-dialog-title *ngIf="isEditing && !isNew ">Edit IP Access</h1>
+        <h1 mat-dialog-title *ngIf="isEditing && isNew ">Create IP Access</h1>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="bodyedit" *ngIf="isEditing">
+
+        <div mat-dialog-content class="form-container">
+            <!-- Use form controls for editable properties -->
+            <form [formGroup]="editForm">
+                <mat-form-field class="custom-select-field">
+                    <mat-label>IP Plan</mat-label>
+                    <mat-select [formControl]="ipPlanControl" class="custom-select"
+                        (selectionChange)="onSelectChanged()">
+                        <mat-option *ngFor="let option of ipSelectOptions" [value]="option">{{option}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <form [formGroup]="editForm">
+                    <mat-form-field>
+                        <input matInput formControlName="PLAN_YEAR" placeholder="Plan Year" />
+                    </mat-form-field>
+                </form>
+                <mat-form-field class="custom-select-field">
+                    <mat-label>User Type</mat-label>
+                    <mat-select [formControl]="userTypeControl" class="custom-select"
+                        (selectionChange)="onSelectChanged()">
+                        <mat-option *ngFor="let option of userSelectOptions" [value]="option">{{option}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="custom-select-field">
+                    <mat-label>Plan Status</mat-label>
+                    <mat-select [formControl]="planStatusControl" class="custom-select"
+                        (selectionChange)="onSelectChanged()">
+                        <mat-option *ngFor="let option of planStatusSelectOptions" [value]="option">{{option}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="custom-select-field">
+                    <mat-label>Access Page</mat-label>
+                    <mat-select [formControl]="accessPageControl" class="custom-select"
+                        (selectionChange)="onSelectChanged()">
+                        <mat-option *ngFor="let option of accessPageSelectOptions" [value]="option">{{option}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field class="custom-select-field">
+                    <mat-label>Access Type</mat-label>
+                    <mat-select [formControl]="accessTypeControl" class="custom-select"
+                        (selectionChange)="onSelectChanged()">
+                        <mat-option *ngFor="let option of accessTypeSelectOptions" [value]="option">{{option}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </form>
+        </div>
+    </div>
+
+
+    <mat-divider></mat-divider>
+    <div class="footer">
+        <button mat-button (click)="onGoBack()">Back</button>
+        <button mat-button (click)="onEdit($event)" *ngIf="!isEditing">Edit</button>
+        <button mat-button (click)="onReset()" *ngIf="isEditing && isDirty">Reset</button>
+        <button mat-button (click)="onDelete()" color="accent" *ngIf="!isEditing">Delete</button>
+        <button mat-button (click)="onSave()" *ngIf="isEditing">Save Changes</button>
+    </div>
+</div>
+
+
+<div mat-dialog-actions>
+    <!-- Any actions or buttons you want to add can go here -->
+</div>

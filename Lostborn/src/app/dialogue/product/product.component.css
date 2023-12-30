@@ -1,0 +1,77 @@
+.container .bodyread{
+    margin-top: 5px;
+    display: flex;
+    font-size: 16px;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    text-align: left;
+  }
+  .container .bodyedit{
+    margin-top: 5px;
+    display: flex;
+    font-size: 16px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .container .footer{
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }  
+  .container .title{
+    margin-top:5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .container .bodyedit .images-tab {
+    margin-top: 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .container .bodyedit .general-tab {
+    margin-top: 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  /* Additional styling for the "Prod Frag" Container */
+  .prod-frag-container {
+    width: 100%; /* Set the desired width */
+  }
+  
+  /* Additional styling for the "Description Long" Container */
+  .description-long-container {
+
+    width:100%; /* Set the desired width */
+  }
+  
+  /* Adjust the size of the textarea in the "Description Long" Container */
+  .description-long-container textarea {
+    width: 100%; /* Set the desired width */
+    height: 110px; /* Set the desired height */
+  }
+  .mat-form-field{
+    width:350px !important;
+ }
+ .example-form {
+    min-width: 150px;
+    max-width: 570px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  

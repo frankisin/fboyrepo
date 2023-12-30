@@ -1,0 +1,118 @@
+<div class="container">
+
+    <mat-divider></mat-divider>
+
+    <div class="bodyread" *ngIf="!isEditing">
+        <div class="title">
+            <h1 mat-dialog-title>Product Detail</h1>
+        </div>
+        <mat-divider></mat-divider>
+        <div mat-dialog-content>
+            <p><span style="color: #ff4081; text-decoration: underline;">ID:</span> {{ ID }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">Title:</span> {{ title }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">Weight:</span> {{ weight }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">Description:</span> {{ description }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">Price:</span> {{ price }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">ProdStatus:</span> {{ prodStatus }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">ProdFrag:</span> {{ prodFrag }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">DescriptionLong:</span> {{ descriptionLong }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">InStock:</span> {{ inStock }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">AverageRating:</span> {{ averageRating }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">ImageUrl:</span> {{ imageUrl }}</p>
+            <p><span style="color: #ff4081; text-decoration: underline;">ImageUrlDetail:</span> {{ imageUrlDetail }}</p>
+        </div>
+    </div>
+
+
+    <div class="bodyedit" *ngIf="isEditing">
+        <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center">
+            <div class="title">
+                <h1 mat-dialog-title>Edit Product</h1>
+            </div>
+            <!-- First Tab -->
+            <mat-tab label="General">
+                <div mat-dialog-content class=" general-tab form-container">
+                    <!-- Use form controls for editable properties -->
+                    <form [formGroup]="editForm" class="example-form">
+                        <mat-form-field>
+                            <mat-label>Title</mat-label>
+                            <input matInput formControlName="title" placeholder="Title" (input)="onChanged()"/>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>Description</mat-label>
+                            <input matInput formControlName="description" placeholder="Description" (input)="onChanged()"/>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>Price</mat-label>
+                            <input matInput formControlName="price" placeholder="Price" (input)="onChanged()"/>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>Weight</mat-label>
+                            <input matInput formControlName="weight" placeholder="Weight" (input)="onChanged()"/>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>In Stock</mat-label>
+                            <input matInput formControlName="inStock" placeholder="In Stock" (input)="onChanged()"/>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <mat-label>Average Rating</mat-label>
+                            <input matInput formControlName="averageRating" placeholder="Average Rating" (input)="onChanged()"/>
+                        </mat-form-field>
+
+                        <!-- "Prod Frag" Container -->
+                        <div class="prod-frag-container">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Product Fragrances</mat-label>
+                                <input matInput formControlName="prodFrag" placeholder="Product Fragrances" />
+                            </mat-form-field>
+                        </div>
+
+                        <!-- "Description Long" Container -->
+                        <div class="description-long-container">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Description Long</mat-label>
+                                <textarea matInput formControlName="descriptionLong"
+                                    placeholder="Long Description"></textarea>
+                            </mat-form-field>
+                        </div>
+                    </form>
+                </div>
+            </mat-tab>
+            <!-- Second Tab -->
+            <mat-tab label="Images">
+                <div class="bodyedit" *ngIf="isEditing">
+                    <div mat-dialog-content class="images-tab form-container">
+                        <!-- Use form controls for editable properties -->
+                        <form [formGroup]="editForm">
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Image URL</mat-label>
+                                <input matInput formControlName="imageUrl" placeholder="Image URL" />
+                            </mat-form-field>
+
+                            <mat-form-field class="example-full-width">
+                                <mat-label>Image URL Detail</mat-label>
+                                <input matInput formControlName="imageUrlDetail" placeholder="Image URL Detail" />
+                            </mat-form-field>
+                        </form>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="footer">
+        <button mat-button (click)="onGoBack()">Back</button>
+        <button mat-button (click)="onEdit($event)" *ngIf="!isEditing">Edit</button>
+        <button mat-button (click)="onReset()" *ngIf="isEditing && isDirty">Reset</button>
+        <button mat-button (click)="onDelete()" color="accent" *ngIf="!isEditing">Delete</button>
+        <button mat-button (click)="onSave()" *ngIf="isEditing">Save Changes</button>
+    </div>
+
+    <div mat-dialog-actions>
+        <!-- Any actions or buttons you want to add can go here -->
+    </div>

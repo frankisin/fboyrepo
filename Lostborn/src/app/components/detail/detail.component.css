@@ -1,0 +1,54 @@
+.fragrance-item {
+    text-align: center;
+    font-size: 1rem;
+}
+
+.fragrance-image {
+    max-width: 15rem;
+    max-height: 15rem;
+    background: none;
+}
+.back-button-container {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+}
+.back-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    width: 40px;
+    height: 40px;
+    background-color: rgb(244, 238, 238);
+    color: #f4deaa;
+    border-radius: 60%;
+    text-decoration: none;
+    font-size: 20px;
+    transition: background-color 0.3s;
+}
+
+.transparent-background {
+    background: none;
+}
+.prodDescContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Adjust the gap as needed */
+}
+.cardcontainer{
+    margin-left: 40rem;
+    margin-right:40rem;
+}
+
+.card-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Set the desired gap between cards */
+}
+.card {
+    width: 110%; /* Use 100% width for responsiveness */
+    max-height: 400px; /* Set the maximum height as needed */
+    /* Add any other styling you need */
+}

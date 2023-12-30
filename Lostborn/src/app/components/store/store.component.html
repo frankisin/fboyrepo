@@ -1,0 +1,89 @@
+<main class="main">
+    <div class="content" style="background-color: rgb(253, 253, 252);">
+        <div class="navbarcontainer">
+            <app-navbar></app-navbar>
+            <!--Masthead-->
+            <div class="masthead-container">
+                <header class="masthead text-center text-white">
+                    <div class="masthead-content">
+                        <div class="container px-5">
+
+                        </div>
+                    </div>
+                </header>
+            </div>
+            <!--Header Images-->
+            <div class="container px-5">
+                <div class="row align-items-center custom-row">
+                    <!-- Image 1 -->
+                    <div class="col-sm" style="text-align: center; padding: 0;">
+                        <div class="p-1"><img class="img-fluid rounded custom-image"
+                                src="https://cdn.scentbird.com/frontbird2/images/occasion-desktop_75d87b.jpg?w=428"
+                                alt="Image 1" /></div>
+                        <p style="padding-top: .2rem;">Occasion</p>
+                    </div>
+
+                    <!-- Image 2 -->
+                    <div class="col-sm" style="text-align: center; padding: 0;">
+                        <div class="p-1"><img class="img-fluid rounded custom-image"
+                                src="https://cdn.scentbird.com/frontbird2/images/personality-desktop_20398b.jpg?w=428"
+                                alt="Image 2" /></div>
+                        <p style="padding-top: .2rem;">Personality</p>
+                    </div>
+
+                    <!-- Image 3 -->
+                    <div class="col-sm" style="text-align: center; padding: 0;">
+                        <div class="p-1"><img class="img-fluid rounded custom-image"
+                                src="https://cdn.scentbird.com/frontbird2/images/fragrance-family-desktop_02814d.jpg?w=428"
+                                alt="Image 3" /></div>
+                        <p style="padding-top: .2rem;">Fragrance Family</p>
+                    </div>
+
+                    <!-- Image 4 -->
+                    <div class="col-sm" style="text-align: center; padding: 0;">
+                        <div class="p-1"><img class="img-fluid rounded custom-image"
+                                src="https://cdn.scentbird.com/frontbird2/images/season-desktop_31ab71.jpg?w=428"
+                                alt="Image 4" /></div>
+                        <p style="padding-top: .2rem;">Season</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+
+            </div>
+            <!--Cards-->
+            <div class="container px-5">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 style="margin: 0; margin-left: 30px;color: #af6929;">Now browsing {{dataSourceLength}} colognes
+                    </h4>
+                    <div class="d-flex">
+                        <div class="flex-grow-1"></div>
+                        <button mat-stroked-button>Filter</button>
+                        <button mat-stroked-button style="margin-left: 1rem;">Personalize</button>
+                    </div>
+                </div>
+                <div class="cardContainer">
+                    <section>
+                        <div class="row align-items-center">
+                            <div *ngFor="let card of members" class="col-sm-4 mb-3">
+                                <app-card
+                                  [title]="card.Title"
+                                  [weight]="card.Weight"
+                                  [description]="card.Description"
+                                  [price]="card.Price"
+                                  [imageUrl]="card.ImageUrl"
+                                  [prodFrag]="card.ProdFrag"
+                                  [prodStatus]="card.ProdStatus"
+                                  [descriptionLong]="card.DescriptionLong"
+                                  [inStock]="card.InStock"
+                                  [averageRating]="card.AverageRating"
+                                  [imageUrlDetail]="card.ImageUrlDetail"
+                                ></app-card>
+                              </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

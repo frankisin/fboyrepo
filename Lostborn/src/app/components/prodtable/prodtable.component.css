@@ -1,0 +1,17 @@
+
+  table {
+    width: 100%;
+    table-layout: center;
+    margin-left: 5rem;
+    margin-right: 5rem;
+  }
+  .short-cell-height{
+    max-width: 5rem;
+  }
+  
+  th, td {
+    overflow: hidden;
+    width:auto;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }

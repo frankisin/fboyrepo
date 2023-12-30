@@ -1,0 +1,39 @@
+.table-container {
+    width: 70%;
+    margin: 5px auto;
+}
+
+.form-floating {
+    display: flex;
+    align-items: center;
+}
+
+.scrollable-container {
+    max-height: 400px;
+    /* Set your desired height */
+    overflow-y: auto;
+}
+
+.select-container {
+    margin-top: 4%;
+}
+
+.mat-mdc-form-field {
+    font-size: 10px;
+    width: 100%;
+}
+
+.custom-select-field {
+    width: 15%;
+    margin: 10px;
+    /* Adjust the margin as needed */
+}
+
+.custom-select {
+    width: 100%;
+    /* Set the desired width */
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+    border-color: currentColor;
+  }

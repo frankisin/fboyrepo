@@ -1,0 +1,108 @@
+<div class="container text-center">
+    <div class="select-container">
+        <mat-form-field class="custom-select-field">
+            <mat-label>IP Plan</mat-label>
+            <mat-select [formControl]="ipPlanControl" multiple class="custom-select" (selectionChange)="applyFilter()">
+                <mat-option *ngFor="let option of ipSelectOptions" [value]="option">{{option}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="custom-select-field">
+            <mat-label>User Type</mat-label>
+            <mat-select [formControl]="userTypeControl" multiple class="custom-select"
+                (selectionChange)="applyFilter()">
+                <mat-option *ngFor="let option of userSelectOptions" [value]="option">{{option}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="custom-select-field">
+            <mat-label>Access Pages</mat-label>
+            <mat-select [formControl]="accessPageControl" multiple class="custom-select"
+                (selectionChange)="applyFilter()">
+                <mat-option *ngFor="let option of accessPageSelectOptions" [value]="option">{{option}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="custom-select-field">
+            <mat-label>Access Type</mat-label>
+            <mat-select [formControl]="accessTypeControl" multiple class="custom-select"
+                (selectionChange)="applyFilter()">
+                <mat-option *ngFor="let option of accessTypeSelectOptions" [value]="option">{{option}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <button mat-mini-fab (click)="onAddRow()">
+            <mat-icon aria-label="Example icon-button with a heart icon">add</mat-icon>
+        </button>
+    </div>
+</div>
+<!-- Add mat-table and mat-paginator directives -->
+<!-- Add the matSort directive to enable sorting -->
+<div class="table-container">
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilterSearch($event)" placeholder="Waiting for filter..." #input>
+    </mat-form-field>
+    <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+            <div class="scrollable-container">
+                <!-- ID Column -->
+                <ng-container matColumnDef="ID">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+                    <td mat-cell *matCellDef="let element">{{element.ID}}</td>
+                </ng-container>
+
+                <!-- IP Plan Column -->
+                <ng-container matColumnDef="IP_PLAN">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>IP Plan</th>
+                    <td mat-cell *matCellDef="let element">{{element.IP_PLAN}}</td>
+                </ng-container>
+
+                <!-- Plan Year Column -->
+                <ng-container matColumnDef="PLAN_YEAR">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Plan Year</th>
+                    <td mat-cell *matCellDef="let element">{{element.PLAN_YEAR}}</td>
+                </ng-container>
+
+                <!-- OPR Class Column -->
+                <ng-container matColumnDef="OPRCLASS">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>OPR Class</th>
+                    <td mat-cell *matCellDef="let element">{{element.OPRCLASS}}</td>
+                </ng-container>
+
+                <!-- Plan Status Column -->
+                <ng-container matColumnDef="PLAN_STATUS">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Plan Status</th>
+                    <td mat-cell *matCellDef="let element">{{element.PLAN_STATUS}}</td>
+                </ng-container>
+
+                <!-- Access Pages Column -->
+                <ng-container matColumnDef="ACCESS_PAGES">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Access Pages</th>
+                    <td mat-cell *matCellDef="let element">{{element.ACCESS_PAGES}}</td>
+                </ng-container>
+
+                <!-- Access Type Column -->
+                <ng-container matColumnDef="ACCESS_TYPE">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>Access Type</th>
+                    <td mat-cell *matCellDef="let element">{{element.ACCESS_TYPE}}</td>
+                </ng-container>
+
+                <!-- From Date Column -->
+                <ng-container matColumnDef="FROM_DT">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>From Date</th>
+                    <td mat-cell *matCellDef="let element">{{element.FROM_DT}}</td>
+                </ng-container>
+
+                <!-- To Date Column -->
+                <ng-container matColumnDef="TO_DT">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header>To Date</th>
+                    <td mat-cell *matCellDef="let element">{{element.TO_DT}}</td>
+                </ng-container>
+
+                <!-- Add this line to enable row selection -->
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;" (click)="onRowClick(row)"></tr>
+            </div>
+        </table>
+        <mat-paginator [length]="dataSourceLength" [pageSizeOptions]="[10, 15, 30]" showFirstLastButtons
+            aria-label="Select page">
+        </mat-paginator>
+    </div>
+</div>
